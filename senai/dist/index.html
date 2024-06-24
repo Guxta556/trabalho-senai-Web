@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Senai </title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Empresarial</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Controle Empresarial</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#estoque">Gestão de Estoque</a></li>
+            <li><a href="#servicos">Gestão de Serviços</a></li>
+            <li><a href="#manutencao">Controle de Manutenção</a></li>
+            <li><a href="#equipamentos">Gestão de Equipamentos</a></li>
+            <li><a href="#financeiro">Controle Financeiro</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div id="home" class="tab">
+            <h2>Bem-vindo ao Controle Empresarial!</h2>
+            <p>Este é um sistema para gerenciamento empresarial que abrange diferentes aspectos como estoque, serviços, manutenção, equipamentos e controle financeiro.</p>
+            <p>Explore as opções no menu acima para começar.</p>
+        </div>
+
+        <div id="estoque" class="tab">
+            <h2>Gestão de Estoque</h2>
+            <form id="formEstoque">
+                <label for="nomeProduto">Nome do Produto:</label>
+                <input type="text" id="nomeProduto" name="nomeProduto" required>
+                <label for="quantidadeProduto">Quantidade:</label>
+                <input type="number" id="quantidadeProduto" name="quantidadeProduto" required>
+                <label for="valorProduto">Valor:</label>
+                <input type="number" id="valorProduto" name="valorProduto" step="0.01" required>
+                <label for="descricaoProduto">Descrição:</label>
+                <textarea id="descricaoProduto" name="descricaoProduto" rows="4" required></textarea>
+                <label for="precoCustoProduto">Preço de Custo:</label>
+                <input type="number" id="precoCustoProduto" name="precoCustoProduto" step="0.01" required>
+                <label for="precoVendaProduto">Preço de Venda:</label>
+                <input type="number" id="precoVendaProduto" name="precoVendaProduto" step="0.01" required>
+                <label for="lucroProduto">Lucro Unitário:</label>
+                <input type="number" id="lucroProduto" name="lucroProduto" step="0.01" readonly>
+                <button type="submit">Cadastrar Produto</button>
+            </form>
+            <table id="tabelaEstoque">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Quantidade</th>
+                        <th>Valor</th>
+                        <th>Descrição</th>
+                        <th>Preço de Custo</th>
+                        <th>Preço de Venda</th>
+                        <th>Lucro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <button id="exportarEstoque">Exportar Relatório de Estoque</button>
+            <button id="exibirRelatorioEstoque">Exibir Relatório Completo</button>
+            <div id="relatorioEstoque" class="relatorio">
+                <!-- Lista de produtos em estoque -->
+            </div>
+        </div>
+
+        <div id="servicos" class="tab">
+            <h2>Gestão de Serviços</h2>
+            <form id="formServicos">
+              <label for="nomeServico">Nome do Serviço:</label>
+              <input type="text" id="nomeServico" name="nomeServico" required>
+              <label for="descricaoServico">Descrição:</label>
+              <textarea id="descricaoServico" name="descricaoServico" rows="4" required></textarea>
+              <label for="precoServico">Preço:</label>
+              <input type="number" id="precoServico" name="precoServico" step="0.01" required>
+              <button type="submit">Cadastrar Serviço</button>
+            </form>
+            <ul id="listaServicos">
+            </ul>
+        </div>
+        
+        <div id="manutencao" class="tab">
+            <h2>Controle de Manutenção</h2>
+            <form id="formManutencao">
+                <label for="nomeManutencao">Nome da Manutenção:</label>
+                <input type="text" id="nomeManutencao" name="nomeManutencao" required>
+                <label for="custoManutencao">Custo:</label>
+                <input type="number" id="custoManutencao" name="custoManutencao" step="0.01" required>
+                <label for="tipoManutencao">Tipo de Manutenção:</label>
+                <input type="text" id="tipoManutencao" name="tipoManutencao" required>
+                <label for="vinculoManutencao">Vincular a:</label>
+                <select id="vinculoManutencao" name="vinculoManutencao">
+                    <option value="servico">Serviço</option>
+                    <option value="produto">Produto</option>
+                    <option value="equipamento">Equipamento</option>
+                    <option value="nenhum" selected>Nenhum</option>
+                </select>
+                <label for="descricaoManutencao">Descrição:</label>
+                <textarea id="descricaoManutencao" name="descricaoManutencao" rows="4" required></textarea>
+                <label for="dataManutencao">Data:</label>
+                <input type="date" id="dataManutencao" name="dataManutencao" required>
+                <button type="submit">Registrar Manutenção</button>
+            </form>
+            <ul id="listaManutencao">
+            </ul>
+            <button id="exibirRelatorioManutencao">Exibir Relatório Completo</button>
+            <div id="relatorioManutencao" class="relatorio">
+                <!-- Lista de manutenções registradas -->
+            </div>
+        </div>
+        
+        <div id="equipamentos" class="tab">
+            <h2>Gestão de Equipamentos</h2>
+            <form id="formEquipamentos">
+                <label for="nomeEquipamento">Nome do Equipamento:</label>
+                <input type="text" id="nomeEquipamento" name="nomeEquipamento" required>
+                <label for="categoriaEquipamento">Categoria:</label>
+                <input type="text" id="categoriaEquipamento" name="categoriaEquipamento" required>
+                <label for="descricaoEquipamento">Descrição:</label>
+                <textarea id="descricaoEquipamento" name="descricaoEquipamento" rows="4" required></textarea>
+                <button type="button" id="adicionarInfoAdicional">Adicionar Informação Adicional</button>
+                <div id="informacoesAdicionais">
+                    <!-- Campos para informações adicionais serão adicionados aqui -->
+                </div>
+                <button type="submit">Cadastrar Equipamento</button>
+            </form>
+        </div>
+        
+        <div id="financeiro" class="tab">
+            <h2>Controle Financeiro</h2>
+            <form id="formFinanceiro">
+                <label for="tipoTransacao">Tipo de Transação:</label>
+                <input type="text" id="tipoTransacao" name="tipoTransacao" required>
+                <label for="dataTransacao">Data:</label>
+                <input type="date" id="dataTransacao" name="dataTransacao" required>
+                <label for="valorTransacao">Valor:</label>
+                <input type="number" id="valorTransacao" name="valorTransacao" step="0.01" required>
+                <label for="descricaoTransacao">Descrição:</label>
+                <textarea id="descricaoTransacao" name="descricaoTransacao" rows="4" required></textarea>
+                <button type="submit">Registrar Transação</button>
+            </form>
+            <table id="tabelaFinanceira">
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Data</th>
+                        <th>Valor</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <button id="exportarFinanceiro">Exportar Relatório Financeiro</button>
+            <button id="exibirRelatorioFinanceiro">Exibir Relatório Completo</button>
+            <div id="relatorioFinanceiro" class="relatorio">
+                <!-- Lista de transações financeiras -->
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Controle Empresarial</p>
+    </footer>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
